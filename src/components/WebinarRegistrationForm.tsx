@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
-import { Calendar, CheckCircle2, Sparkles } from 'lucide-react';
+import { Calendar, CalendarDays, CheckCircle2, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import dateInputIcon from '../assets/Date_Input.png';
 
 interface WebinarRegistrationFormProps {
   onRegistrationComplete?: () => void;
@@ -107,7 +106,7 @@ export function WebinarRegistrationForm({ onRegistrationComplete }: WebinarRegis
                   ease: "easeOut"
                 }}
                 className="absolute top-1/2 left-1/2 w-2 h-2 rounded-full"
-                style={{ backgroundColor: '#7DD1C1', transformOrigin: 'center' }}
+                style={{ backgroundColor: '#C5203F', transformOrigin: 'center' }}
               />
             ))}
 
@@ -126,9 +125,9 @@ export function WebinarRegistrationForm({ onRegistrationComplete }: WebinarRegis
               <motion.div
                 animate={{ 
                   boxShadow: [
-                    '0 0 0 0 rgba(97, 85, 134, 0.4)',
-                    '0 0 0 20px rgba(97, 85, 134, 0)',
-                    '0 0 0 0 rgba(97, 85, 134, 0)'
+                    '0 0 0 0 rgba(197, 32, 63, 0.4)',
+                    '0 0 0 20px rgba(197, 32, 63, 0)',
+                    '0 0 0 0 rgba(197, 32, 63, 0)'
                   ]
                 }}
                 transition={{ 
@@ -136,7 +135,7 @@ export function WebinarRegistrationForm({ onRegistrationComplete }: WebinarRegis
                   repeat: Infinity,
                   repeatDelay: 0.5
                 }}
-                className="w-20 h-20 rounded-full flex items-center justify-center relative" style={{ backgroundColor: '#615586' }}
+                className="w-20 h-20 rounded-full flex items-center justify-center relative" style={{ backgroundColor: '#C5203F' }}
               >
                 <CheckCircle2 className="w-10 h-10 text-white relative z-10" />
                 
@@ -147,7 +146,7 @@ export function WebinarRegistrationForm({ onRegistrationComplete }: WebinarRegis
                   transition={{ duration: 1, delay: 0.5 }}
                   className="absolute -top-2 -right-2"
                 >
-                  <Sparkles className="w-5 h-5" style={{ color: '#615586' }} />
+                  <Sparkles className="w-5 h-5" style={{ color: '#C5203F' }} />
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, scale: 0 }}
@@ -155,7 +154,7 @@ export function WebinarRegistrationForm({ onRegistrationComplete }: WebinarRegis
                   transition={{ duration: 1, delay: 0.7 }}
                   className="absolute -bottom-2 -left-2"
                 >
-                  <Sparkles className="w-4 h-4" style={{ color: '#615586' }} />
+                  <Sparkles className="w-4 h-4" style={{ color: '#C5203F' }} />
                 </motion.div>
               </motion.div>
             </motion.div>
@@ -168,18 +167,18 @@ export function WebinarRegistrationForm({ onRegistrationComplete }: WebinarRegis
               <h3 className="text-[#030213] mb-3">Registration Confirmed!</h3>
               <p className="text-gray-600 leading-relaxed">
                 Thank you for registering. We've sent the webinar details to <br/>
-                <span style={{ color: '#7DD1C1' }}>{formData.email}</span>
+                <span style={{ color: '#C5203F' }}>{formData.email}</span>
               </p>
               
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="mt-6 p-4 rounded-xl border" style={{ backgroundColor: 'rgba(170, 149, 198, 0.1)', borderColor: '#615586', color: '#615586' }}
+                className="mt-6 p-4 rounded-xl border" style={{ backgroundColor: 'rgba(197, 32, 63, 0.1)', borderColor: '#C5203F', color: '#C5203F' }}
               >
-                <div className="flex items-center justify-center text-sm" style={{ color: '#615586' }}>
-                  <Calendar className="w-4 h-4 mr-2" style={{ color: '#615586' }} />
-                  <span>January 15, 2026 at 2:00 PM ET</span>
+                <div className="flex items-center justify-center text-sm" style={{ color: '#C5203F' }}>
+                  <Calendar className="w-4 h-4 mr-2" style={{ color: '#C5203F' }} />
+                  <span>March 15, 2026 at 2:00 PM ET</span>
                 </div>
               </motion.div>
             </motion.div>
@@ -196,12 +195,12 @@ export function WebinarRegistrationForm({ onRegistrationComplete }: WebinarRegis
             transition={{ duration: 0.3 }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#615586' }}>
-                <img src={dateInputIcon} alt="Date Input" className="w-6 h-6" />
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#C5203F' }}>
+                <CalendarDays className="w-6 h-6 text-white" />
               </div>
               <div>
                 <h3 className="text-[#030213]">Upcoming Webinar</h3>
-                <p className="text-sm text-gray-600">January 15, 2026 | 2:00 PM ET</p>
+                <p className="text-sm text-gray-600">March 15, 2026 | 2:00 PM ET</p>
               </div>
             </div>
             
@@ -266,7 +265,7 @@ export function WebinarRegistrationForm({ onRegistrationComplete }: WebinarRegis
                   onChange={(e) => setAgreedToTerms(e.target.checked)}
                   className="w-3 h-3 rounded border-gray-300 focus:ring-2"
                   style={{
-                    accentColor: '#615586',
+                    accentColor: '#C5203F',
                     marginRight: '12px',
                     marginTop: '4px'
                   }}
@@ -275,13 +274,13 @@ export function WebinarRegistrationForm({ onRegistrationComplete }: WebinarRegis
                   htmlFor="terms" 
                   className="text-xs text-gray-600 cursor-pointer select-none leading-relaxed"
                 >
-                  I consent to receive educational communications and updates about IMMUNEXIS from the sponsor. I understand I may unsubscribe at any time and my data will be handled in accordance with applicable privacy policies.
+                  I consent to receive educational communications and updates about YEZTUGO from the sponsor. I understand I may unsubscribe at any time and my data will be handled in accordance with applicable privacy policies.
                 </label>
               </div>
 
               <Button 
                 type="submit" 
-                className="w-full text-white h-12 mt-4 hover:opacity-90 transition-opacity" style={{ backgroundColor: '#615586' }}
+                className="w-full text-white h-12 mt-4 hover:opacity-90 transition-opacity" style={{ backgroundColor: '#C5203F' }}
               >
                 Reserve Your Spot
               </Button>

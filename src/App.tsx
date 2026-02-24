@@ -11,22 +11,12 @@ import { DataEvolutionVisualization } from './components/DataEvolutionVisualizat
 import { AgenticOrchestrationVisualization } from './components/AgenticOrchestrationVisualization';
 import { AgentDeploymentVisualization } from './components/AgenticDeploymentVisualization';
 import { DemoNav, DemoSection, SectionToggles, getSessionId, loadSettings, saveSettings } from './components/DemoNav';
-import { ShieldCheck, Stethoscope, BookOpen, UserCheck, FileBarChart, Video } from 'lucide-react';
+import { ShieldCheck, Stethoscope, BookOpen, UserCheck, FileBarChart, Video, Atom, Syringe, ClipboardCheck, CalendarDays, ShieldAlert, Users, MessageCircle } from 'lucide-react';
 import { Badge } from './components/ui/badge';
-import makanaLogo from './assets/Makana_Logo.png';
-import makanaLogoWhite from './assets/Makana_Logo_White.png';
-import immunexisLogo from './assets/Immunexis_Logo.png';
-import moleculeIcon from './assets/Molecule.png';
-import syringeIcon from './assets/Syringe.png';
-import clipboardIcon from './assets/Clipboard.png';
-import dateInputIcon from './assets/Date_Input.png';
-import shieldPurpleHeartIcon from './assets/Shield_Purple_Heart.png';
-import stethescopeIcon from './assets/Stethescope.png';
-import caringIcon from './assets/Caring.png';
-import cameraIcon from './assets/Camera.png';
-import noelleKuhlman from './assets/Noelle_Kuhlman.jpg';
-import isabellaMagnani from './assets/Isabella_Magnani.jpg';
-import ryanFerguson from './assets/Ryan_Ferguson.jpg';
+import gileadLogo from './assets/Gilead-Logo.svg';
+import yeztugoLogo from './assets/Yeztugo-Logo.svg';
+import sarahPhoto from './assets/Sarah.png';
+import jamesPhoto from './assets/James.png';
 
 export default function App() {
   const [showChat, setShowChat] = useState(false);
@@ -184,11 +174,11 @@ export default function App() {
         <header className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-8">
-            <img src={makanaLogo} alt="Makana Health" className="h-8 object-contain" />
+            <img src={gileadLogo} alt="Gilead" className="h-8 object-contain" />
             <div className="h-6 w-px bg-gray-300" />
-            <img src={immunexisLogo} alt="Immunexis" className="h-6 object-contain" />
+            <img src={yeztugoLogo} alt="Yeztugo" className="h-10 object-contain" />
           </div>
-          <Badge variant="outline" className="" style={{ borderColor: '#615586', color: '#615586' }}>
+          <Badge variant="outline" className="" style={{ borderColor: '#C5203F', color: '#C5203F' }}>
             For Healthcare Professionals
           </Badge>
         </div>
@@ -203,49 +193,49 @@ export default function App() {
               <Badge 
                 className="border-0" 
                 style={{ 
-                  backgroundColor: 'rgba(170, 149, 198, 0.1)', 
-                  color: '#615586',
+                  backgroundColor: 'rgba(197, 32, 63, 0.1)', 
+                  color: '#C5203F',
                   fontWeight: 'bold'
                 }}
               >
-                ramutelimab - TNF-α inhibitor
+                lenacapavir - HIV-1 capsid inhibitor
               </Badge>
               <h1 className="text-5xl text-[#030213]">
-                Understanding Safety & Evidence with IMMUNEXIS
+                Understanding Safety & Evidence with YEZTUGO
               </h1>
               <p className="text-xl text-gray-600">
-              A fully human monoclonal antibody that selectively inhibits TNF-alpha to reduce inflammation. It's indicated for moderate to severe rheumatoid arthritis, Crohn's disease, and ulcerative colitis in patients who have inadequate response to conventional therapy.
+              A first-in-class, long-acting HIV-1 capsid inhibitor administered as a twice-yearly subcutaneous injection. YEZTUGO (lenacapavir) is indicated for HIV-1 pre-exposure prophylaxis (PrEP) to reduce the risk of sexually acquired HIV-1 infection.
               </p>
             </div>
 
             {/* Key Safety Points */}
             <div className="space-y-4">
               <div className="flex items-start gap-4">
-                <img src={moleculeIcon} alt="Molecule" className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                <Atom className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: '#C5203F' }} />
                 <div>
-                  <h4 className="text-[#030213] mb-1">Targeted Mechanism</h4>
+                  <h4 className="text-[#030213] mb-1">Multi-Stage Capsid Inhibition</h4>
                   <p className="text-gray-600">
-                  Selectively inhibits TNF-alpha, blocking inflammatory cytokine signaling to reduce disease activity and prevent joint damage.
+                  Targets the HIV-1 capsid protein at multiple stages of the viral lifecycle, inhibiting viral replication through a mechanism distinct from all other approved antiretrovirals.
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <img src={syringeIcon} alt="Syringe" className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                <Syringe className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: '#C5203F' }} />
                 <div>
-                  <h4 className="text-[#030213] mb-1">Dosing & Administration</h4>
+                  <h4 className="text-[#030213] mb-1">Twice-Yearly Dosing</h4>
                   <p className="text-gray-600">
-                  Administered as a subcutaneous injection every 2 weeks or IV infusion for loading dose, with option for self-administration after training.
+                  Administered as a subcutaneous injection every 6 months by a healthcare provider, offering a long-acting alternative to daily oral PrEP regimens.
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <img src={clipboardIcon} alt="Clipboard" className="w-6 h-6 object-contain flex-shrink-0 mt-0.5" />
+                <ClipboardCheck className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: '#C5203F' }} />
                 <div>
-                  <h4 className="text-[#030213] mb-1">Infection Risk Management</h4>
+                  <h4 className="text-[#030213] mb-1">Safety & Monitoring</h4>
                   <p className="text-gray-600">
-                  Screen for latent tuberculosis and hepatitis B before initiating therapy, and monitor for serious infections throughout treatment.
+                  Confirm HIV-negative status before each injection. Monitor for injection site reactions and assess renal function at baseline and as clinically indicated.
                   </p>
                 </div>
               </div>
@@ -275,46 +265,32 @@ export default function App() {
       {/* Featured Speakers */}
       <section className="max-w-7xl mx-auto px-6 py-12">
         <h2 className="text-[#030213] mb-8 text-center">Featured Speakers</h2>
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 flex flex-col items-center text-center gap-4">
             <img 
-              src={noelleKuhlman} 
-              alt="Dr. Noelle Kuhlman" 
+              src={sarahPhoto} 
+              alt="Dr. Sarah Okonkwo" 
               className="w-24 h-24 rounded-full object-cover flex-shrink-0"
-              style={{ boxShadow: '0 0 0 2px white, 0 0 0 4px #AA95C6' }}
+              style={{ boxShadow: '0 0 0 2px white, 0 0 0 4px #E07A87' }}
             />
             <div>
-              <h3 className="text-[#030213]">Dr. Noelle Kuhlman</h3>
-              <p className="text-gray-600">Lead Clinical Investigator</p>
-              <p className="text-sm text-gray-500 mt-1">Rheumatology & Clinical Trials Specialist</p>
+              <h3 className="text-[#030213]">Dr. Sarah Okonkwo</h3>
+              <p className="text-gray-600">Lead Clinical Investigator, PURPOSE Trials</p>
+              <p className="text-sm text-gray-500 mt-1">HIV Prevention & Infectious Disease Research</p>
             </div>
           </div>
 
           <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 flex flex-col items-center text-center gap-4">
             <img 
-              src={isabellaMagnani} 
-              alt="Dr. Isabella Magnani" 
+              src={jamesPhoto} 
+              alt="Dr. James Liu" 
               className="w-24 h-24 rounded-full object-cover flex-shrink-0"
-              style={{ boxShadow: '0 0 0 2px white, 0 0 0 4px #AA95C6' }}
+              style={{ boxShadow: '0 0 0 2px white, 0 0 0 4px #E07A87' }}
             />
             <div>
-              <h3 className="text-[#030213]">Dr. Isabella Magnani</h3>
-              <p className="text-gray-600">Director of Safety Research</p>
-              <p className="text-sm text-gray-500 mt-1">TNF Inhibitor Safety & Infection Monitoring</p>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 flex flex-col items-center text-center gap-4">
-            <img 
-              src={ryanFerguson} 
-              alt="Dr. Ryan Ferguson" 
-              className="w-24 h-24 rounded-full object-cover flex-shrink-0"
-              style={{ boxShadow: '0 0 0 2px white, 0 0 0 4px #AA95C6' }}
-            />
-            <div>
-              <h3 className="text-[#030213]">Dr. Ryan Ferguson</h3>
-              <p className="text-gray-600">Gastroenterology Specialist</p>
-              <p className="text-sm text-gray-500 mt-1">IBD & Biologic Therapy</p>
+              <h3 className="text-[#030213]">Dr. James Liu</h3>
+              <p className="text-gray-600">Director of Antiretroviral Safety Research</p>
+              <p className="text-sm text-gray-500 mt-1">Long-Acting PrEP & Drug Interaction Pharmacology</p>
             </div>
           </div>
         </div>
@@ -324,37 +300,37 @@ export default function App() {
       <section className="max-w-7xl mx-auto px-6 py-12">
         <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#615586' }}>
-              <img src={dateInputIcon} alt="Date Input" className="w-5 h-5 object-contain" />
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#C5203F' }}>
+              <CalendarDays className="w-5 h-5 text-white" />
             </div>
-            <h2 className="text-[#030213]">Webinar Agenda: Safety Deep Dive</h2>
+            <h2 className="text-[#030213]">Webinar Agenda: YEZTUGO Safety Deep Dive</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="space-y-3">
-              <img src={shieldPurpleHeartIcon} alt="Shield Purple Heart" className="w-8 h-8 object-contain" />
-              <h3 className="text-[#030213]">Safety Profile Overview</h3>
+              <ShieldAlert className="w-8 h-8" style={{ color: '#C5203F' }} />
+              <h3 className="text-[#030213]">Safety Profile & Screening</h3>
               <p className="text-gray-600">
-                Detailed analysis of infection risk, contraindications, and screening protocols from Phase III trials in RA and IBD
+                Overview of injection site reactions, drug interactions, CYP3A inducer contraindications, and HIV testing requirements from the PURPOSE trials
               </p>
-              <p className="text-sm text-[#615586]">30 minutes</p>
+              <p className="text-sm" style={{ color: '#C5203F' }}>30 minutes</p>
             </div>
 
             <div className="space-y-3">
-              <img src={stethescopeIcon} alt="Stethoscope" className="w-8 h-8 object-contain" />
-              <h3 className="text-[#030213]">Long-Term Safety Data</h3>
+              <Stethoscope className="w-8 h-8" style={{ color: '#C5203F' }} />
+              <h3 className="text-[#030213]">Clinical Efficacy & Real-World Data</h3>
               <p className="text-gray-600">
-                In-depth review of safety outcomes from 52-week extension studies across rheumatoid arthritis and inflammatory bowel disease populations
+                In-depth review of PURPOSE 1 and PURPOSE 2 trial outcomes, twice-yearly dosing adherence, and efficacy across diverse populations
               </p>
-              <p className="text-sm text-[#615586]">25 minutes</p>
+              <p className="text-sm" style={{ color: '#C5203F' }}>25 minutes</p>
             </div>
 
             <div className="space-y-3">
-              <img src={caringIcon} alt="Caring" className="w-8 h-8 object-contain" />
-              <h3 className="text-[#030213]">Patient Management & Q&A</h3>
+              <MessageCircle className="w-8 h-8" style={{ color: '#C5203F' }} />
+              <h3 className="text-[#030213]">Implementation & Q&A</h3>
               <p className="text-gray-600">
-                Practical guidance on TB screening, vaccination timing, and interactive session with immunology specialists
+                Practical guidance on patient selection, renal monitoring, concomitant medication review, and interactive session with HIV prevention specialists
               </p>
-              <p className="text-sm text-[#615586]">35 minutes</p>
+              <p className="text-sm" style={{ color: '#C5203F' }}>35 minutes</p>
             </div>
           </div>
         </div>
@@ -362,31 +338,31 @@ export default function App() {
 
       {/* Final CTA */}
       <section className="max-w-7xl mx-auto px-6 py-12">
-        <div style={{ backgroundColor: '#615586' }} className="rounded-2xl p-12 text-center text-white">
-          <h2 className="text-white mb-4">Ready to Learn More About IMMUNEXIS Safety & Evidence?</h2>
+        <div style={{ backgroundColor: '#C5203F' }} className="rounded-2xl p-12 text-center text-white">
+          <h2 className="text-white mb-4">Ready to Learn More About YEZTUGO Safety & Evidence?</h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join leading rheumatologists and gastroenterologists for an in-depth exploration of ramutelimab's 
-            safety profile, infection risk management, and patient monitoring strategies.
+            Join leading HIV prevention researchers for an in-depth exploration of lenacapavir's 
+            safety profile, twice-yearly dosing, and patient screening strategies.
           </p>
           <a 
             href="#top" 
-            className="bg-white px-8 py-3 rounded-xl hover:bg-gray-50 transition-colors inline-flex items-center gap-2 mx-auto" style={{ color: '#615586' }}
+            className="bg-white px-8 py-3 rounded-xl hover:bg-gray-50 transition-colors inline-flex items-center gap-2 mx-auto" style={{ color: '#C5203F' }}
           >
-            <img src={cameraIcon} alt="Camera" className="w-5 h-5 object-contain" />
+            <Video className="w-5 h-5" />
             Register for Webinar
           </a>
         </div>
       </section>
 
       {/* Footer */}
-      <footer style={{ backgroundColor: '#3F4760' }} className="text-white mt-16">
+      <footer style={{ backgroundColor: '#54565B' }} className="text-white mt-16">
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-4 mb-4">
-                <img src={makanaLogoWhite} alt="Makana Health" className="h-8 object-contain" />
+                <img src={gileadLogo} alt="Gilead" className="h-8 object-contain brightness-0 invert" />
                 <div className="h-6 w-px bg-white" />
-                <img src={immunexisLogo} alt="Immunexis" className="h-6 object-contain" />
+                <img src={yeztugoLogo} alt="Yeztugo" className="h-10 object-contain brightness-0 invert" />
               </div>
               <p className="text-white text-sm">
                 Pioneering healthcare solutions for a better tomorrow
@@ -414,8 +390,8 @@ export default function App() {
             </div>
           </div>
             <div className="border-t border-white pt-8 text-sm text-white text-center">
-            <p>© 2025 Makana Health. All rights reserved. This is a proof of concept for demonstration purposes.</p>
-            <p className="mt-2">IMMUNEXIS (ramutelimab) is an investigational drug. Please consult full prescribing information.</p>
+            <p>© 2025 Gilead Sciences, Inc. All rights reserved. This is a proof of concept for demonstration purposes.</p>
+            <p className="mt-2">YEZTUGO (lenacapavir) is for HIV-1 pre-exposure prophylaxis. Please consult full prescribing information.</p>
           </div>
         </div>
       </footer>

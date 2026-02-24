@@ -1,8 +1,4 @@
-import { ShieldCheck, AlertCircle, ClipboardCheck, HeartPulse } from 'lucide-react';
-import shieldRedHeartIcon from '../assets/Shield_Red_Heart.png';
-import clipboardIcon from '../assets/Clipboard.png';
-import laptopIcon from '../assets/Laptop.png';
-import syringeIcon from '../assets/Syringe.png';
+import { ShieldAlert, AlertCircle, ClipboardList, Syringe, TestTubes } from 'lucide-react';
 
 export function SafetyHighlights() {
   return (
@@ -10,40 +6,40 @@ export function SafetyHighlights() {
       <div className="text-center mb-12">
         <h2 className="text-[#030213] mb-4">Safety Profile Highlights</h2>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Comprehensive safety data from clinical trials with over 1,200 patient-years of exposure
+          Comprehensive safety data from the PURPOSE clinical trial program with over 5,000 participants
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
         <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 space-y-3">
-          <img src={shieldRedHeartIcon} alt="Shield Red Heart" className="w-8 h-8 object-contain" />
-          <h4 className="text-[#030213]">Serious Risks</h4>
+          <Syringe className="w-8 h-8" style={{ color: '#C5203F' }} />
+          <h4 className="text-[#030213]">Injection Site Reactions</h4>
           <p className="text-sm text-gray-600">
-            Serious infections including TB and sepsis, malignancies, hepatitis B reactivation, and heart failure exacerbation.
+            Most common adverse event. Reactions were generally mild to moderate, including pain, swelling, and erythema at the injection site.
           </p>
         </div>
 
         <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 space-y-3">
-          <img src={clipboardIcon} alt="Clipboard" className="w-8 h-8 object-contain" />
+          <ClipboardList className="w-8 h-8" style={{ color: '#C5203F' }} />
           <h4 className="text-[#030213]">Common Adverse Events</h4>
           <p className="text-sm text-gray-600">
-          Injection site reactions, upper respiratory infections, headache, nausea, and rash.
+            Injection site reactions and subcutaneous nodules. Nausea reported infrequently. Overall discontinuation rates due to adverse events were low.
           </p>
         </div>
 
         <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 space-y-3">
-          <img src={laptopIcon} alt="Laptop" className="w-8 h-8 object-contain" />
+          <TestTubes className="w-8 h-8" style={{ color: '#C5203F' }} />
           <h4 className="text-[#030213]">Required Screening</h4>
           <p className="text-sm text-gray-600">
-            TB testing (PPD or IGRA) and hepatitis B screening required before initiating therapy.
+            Confirm HIV-1 negative status before each injection. Assess renal function at baseline. Screen for hepatitis B virus infection.
           </p>
         </div>
 
         <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 space-y-3">
-          <img src={syringeIcon} alt="Syringe" className="w-8 h-8 object-contain" />
-          <h4 className="text-[#030213]">Vaccination Guidance</h4>
+          <ShieldAlert className="w-8 h-8" style={{ color: '#C5203F' }} />
+          <h4 className="text-[#030213]">Drug Interactions</h4>
           <p className="text-sm text-gray-600">
-            Live vaccines contraindicated. Update vaccinations prior to initiating treatment.
+            Contraindicated with strong CYP3A inducers (e.g., rifampin, carbamazepine). Evaluate concomitant medications before initiating.
           </p>
         </div>
       </div>
@@ -54,10 +50,11 @@ export function SafetyHighlights() {
           <div>
             <h4 className="text-amber-900 mb-2">Important Safety Information</h4>
             <p className="text-sm text-amber-800 mb-3">
-              IMMUNEXIS increases the risk of serious infections leading to hospitalization or death, including tuberculosis, 
-              bacterial sepsis, invasive fungal infections, and infections due to opportunistic pathogens. Patients should be 
-              tested for latent TB before and during treatment. Monitor all patients closely for signs and symptoms of infection 
-              during and after treatment, including possible development of TB in patients who tested negative prior to therapy.
+              YEZTUGO is indicated only for individuals confirmed to be HIV-1 negative immediately prior to each injection.
+              Drug-resistant HIV-1 variants may emerge if YEZTUGO is used in individuals with undiagnosed HIV-1 infection.
+              Individuals must be tested for HIV-1 before each injection. Do not initiate if signs or symptoms of acute HIV
+              infection are present. YEZTUGO is contraindicated with co-administration of strong CYP3A inducers, which may
+              significantly decrease lenacapavir plasma concentrations.
             </p>
             <a href="#" className="text-sm text-amber-900 underline hover:text-amber-950">
               View Full Prescribing Information
