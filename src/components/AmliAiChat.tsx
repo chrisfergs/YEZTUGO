@@ -4,7 +4,7 @@ import { MessageCircle, X, Send } from 'lucide-react';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { Badge } from './ui/badge';
-import immunexisIcon from '../assets/Immunexis-Icon.png';
+import gileadLogo from '../assets/Gilead-Logo.svg';
 
 interface Message {
   id: number;
@@ -40,11 +40,11 @@ export function AmliAiChat({ isVisible = false, onDemoModeActivate, isDemoMode =
   const formatMessageText = (text: string) => {
     return text
       // Superscripts: ^1^ -> <sup>1</sup>
-      .replace(/\^(\d+)\^/g, '<sup style="color: #8B5CF6 !important; font-size: 0.75em; font-weight: bold;">$1</sup>')
+      .replace(/\^(\d+)\^/g, '<sup style="color: #C5203F !important; font-size: 0.75em; font-weight: bold;">$1</sup>')
       // Bold links: **[text](url)** -> <strong><a>text</a></strong>
-      .replace(/\*\*\[([^\]]+)\]\(([^)]+)\)\*\*/g, '<strong><a href="$2" target="_blank" rel="noopener noreferrer" style="color: #8B5CF6 !important; text-decoration: underline !important; text-decoration-thickness: 2px !important; text-underline-offset: 2px !important;" onmouseover="this.style.color=\'#7C3AED\'" onmouseout="this.style.color=\'#8B5CF6\'">$1</a></strong>')
+      .replace(/\*\*\[([^\]]+)\]\(([^)]+)\)\*\*/g, '<strong><a href="$2" target="_blank" rel="noopener noreferrer" style="color: #C5203F !important; text-decoration: underline !important; text-decoration-thickness: 2px !important; text-underline-offset: 2px !important;" onmouseover="this.style.color=\'#9A1830\'" onmouseout="this.style.color=\'#C5203F\'">$1</a></strong>')
       // Regular links: [text](url) -> <a href="url">text</a>
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #8B5CF6 !important; text-decoration: underline !important; text-decoration-thickness: 2px !important; text-underline-offset: 2px !important;" onmouseover="this.style.color=\'#7C3AED\'" onmouseout="this.style.color=\'#8B5CF6\'">$1</a>')
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #C5203F !important; text-decoration: underline !important; text-decoration-thickness: 2px !important; text-underline-offset: 2px !important;" onmouseover="this.style.color=\'#9A1830\'" onmouseout="this.style.color=\'#C5203F\'">$1</a>')
       // Bold text: **text** -> <strong>text</strong>
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       // Line breaks: \n -> <br>
@@ -52,7 +52,7 @@ export function AmliAiChat({ isVisible = false, onDemoModeActivate, isDemoMode =
       // Checkmarks: ✅ -> styled checkmark
       .replace(/✅/g, '<span class="text-green-600">✅</span>')
       // Link icon: 🔗 -> styled icon
-      .replace(/🔗/g, '<span style="color: #8B5CF6 !important;">🔗</span>');
+      .replace(/🔗/g, '<span style="color: #C5203F !important;">🔗</span>');
   };
 
   useEffect(() => {
@@ -110,10 +110,10 @@ export function AmliAiChat({ isVisible = false, onDemoModeActivate, isDemoMode =
       conversationStage,
       messageCount: messages.length,
       lastMessage: messages[messages.length - 1],
-      userEmail: 'aaron.morita1@gmail.com',
+      userEmail: 'aaron.morita@example.com',
       chatDuration: messages.length > 0 ? 
         (new Date().getTime() - messages[0].timestamp.getTime()) / 1000 : 0,
-      platform: 'AMLI AI powered by Agentforce'
+      platform: 'Lena AI powered by Agentforce'
     });
 
     // Mock API call to SaaS platform
@@ -126,8 +126,8 @@ export function AmliAiChat({ isVisible = false, onDemoModeActivate, isDemoMode =
         conversationStage,
         messageCount: messages.length,
         userProfile: {
-          email: 'aaron.morita1@gmail.com',
-          specialty: 'Rheumatology'
+          email: 'aaron.morita@example.com',
+          specialty: 'Infectious Disease'
         }
       })
     }).catch(() => console.log('Mock API call - no actual endpoint'));
@@ -142,7 +142,7 @@ export function AmliAiChat({ isVisible = false, onDemoModeActivate, isDemoMode =
           setIsTyping(false);
           setMessages([{
             id: 1,
-            text: "Hi there Dr. Morita! — I can help answer general, on-label questions about IMMUNEXIS, such as approved indications for rheumatoid arthritis and IBD, dosing, administration, and safety information including TB screening requirements. Please note that I can only provide information consistent with the FDA-approved prescribing information. For questions outside of approved use, I can connect you directly with our Medical Information team.\n\nBefore we begin, please review the **[Important Safety Information](https://www.salesforce.com/healthcare-life-sciences/life-sciences-software/)** including the Boxed Warning for serious infections, and the full **[Prescribing Information](https://www.salesforce.com/healthcare-life-sciences/life-sciences-software/)**. What would you like help with today?",
+            text: "Hi there, Dr. Morita! I can help answer general, on-label questions about YEZTUGO, such as approved indications, dosing, administration, and safety information. Please note that I can only provide information consistent with the FDA-approved prescribing information. For questions outside of approved use, I can connect you directly with our Medical Information team.\n\nBefore we begin, please review the **[Important Safety Information](https://www.salesforce.com/healthcare-life-sciences/life-sciences-software/)** and the full **[Prescribing Information](https://www.salesforce.com/healthcare-life-sciences/life-sciences-software/)**. What would you like help with today?",
             sender: 'ai',
             timestamp: new Date()
           }]);
@@ -156,13 +156,13 @@ export function AmliAiChat({ isVisible = false, onDemoModeActivate, isDemoMode =
   const getUserResponse = (stage: number): string => {
     switch (stage) {
       case 1:
-        return "I have a patient with moderate to severe rheumatoid arthritis who has failed methotrexate. I'm considering starting IMMUNEXIS. What are the key payer requirements and screening protocols I need to complete before initiating therapy?";
+        return "I have a patient experiencing localized pain, swelling, and a small nodule at the injection site three days after their first Yeztugo dose. What are the documented incidence rates for this, and what is the recommended clinical management?";
       case 2:
-        return "That's helpful — can you provide information about patient training resources for self-administration? I'd like to offer my patient the subcutaneous option if they're comfortable with it.";
+        return "That's helpful. Does the presence of a nodule at day 3 indicate a need for a dose adjustment or a change in the 6-month continuation schedule?";
       case 3:
-        return "Yes, please send it.";
+        return "Yes, please submit a formal inquiry for me";
       case 4:
-        return "One more thing — what are the most common adverse events I should counsel my patient about, and are there any specific monitoring parameters I need to"; // Intentionally incomplete
+        return "Actually, I also wanted to ask about the long-term safety data from the PURPOSE trials for patients who"; // Intentionally incomplete
       default:
         return "";
     }
@@ -172,11 +172,11 @@ export function AmliAiChat({ isVisible = false, onDemoModeActivate, isDemoMode =
   const getAiResponse = (stage: number): string => {
     switch (stage) {
       case 1:
-        return "Great question! TNF inhibitors like IMMUNEXIS require careful pre-treatment screening and documentation. Many plans require PA review before approving coverage for biologic therapy in RA patients.^1^\n\n**Key requirements to complete:**\n\n✅ **TB Screening:** PPD or IGRA testing required within 3 months prior to initiation — if positive, TB treatment must be initiated before starting IMMUNEXIS\n\n✅ **Hepatitis B Testing:** HBsAg and anti-HBc screening to identify carriers at risk for reactivation\n\n✅ **Conventional DMARD Failure:** Documentation that patient had inadequate response to methotrexate or other csDMARDs\n\n✅ **Vaccination Status:** Complete all age-appropriate vaccines (especially pneumococcal and influenza) before starting therapy — live vaccines are contraindicated during treatment^2^\n\nPayers will also review benefits coverage, as IMMUNEXIS is a specialty biologic with typical costs around $6,500-7,000 per month.\n\n**Source:**\n^1^ **[IMMUNEXIS PI — Warnings and Precautions (Section 5.1)](https://www.salesforce.com/healthcare-life-sciences/life-sciences-software/)**\n^2^ **[IMMUNEXIS PI — Drug Interactions (Section 7.2)](https://www.salesforce.com/healthcare-life-sciences/life-sciences-software/)**";
+        return "Great question. Injection site reactions (ISRs) are a known side effect of YEZTUGO. According to the Prescribing Information (Section 6.1), ISRs were reported in 18% of patients during clinical trials. Most reactions, including nodules, pain, and swelling, were categorized as mild to moderate (Grade 1 or 2) and typically resolved spontaneously within 7–10 days.^1^\n\n**Recommended Clinical Management:**\n\n**Localized Care:** Local cold compresses may be used for the first 24 hours to manage swelling and discomfort.\n\n**Assessment:** While small nodules are an expected reaction for this long-acting formulation, clinicians should monitor for signs of skin necrosis or systemic symptoms, which would require immediate escalation.\n\n**Adverse Event Reporting:** Please ensure any significant reactions are reported through your office's standard safety protocols.\n\n**Source:**\n^1^ **[YEZTUGO PI — Adverse Reactions (Section 6.1)](https://www.salesforce.com/healthcare-life-sciences/life-sciences-software/)**\n^2^ **[YEZTUGO PI — Patient Counseling Information (Section 17)](https://www.salesforce.com/healthcare-life-sciences/life-sciences-software/)**";
       case 2:
-        return "Absolutely! Patient self-administration can significantly improve treatment adherence and quality of life. IMMUNEXIS offers a subcutaneous formulation administered every 2 weeks after an optional loading dose.^1^\n\nWe have comprehensive training resources available:\n\n **[View Self-Injection Training Videos & Materials](https://www.salesforce.com/healthcare-life-sciences/life-sciences-software/)**\n\nIn addition, I can send you a resource packet that includes:\n\n• **Patient Injection Training Guide** - Step-by-step instructions with visual aids\n• **Injection Site Rotation Chart** - Best practices to minimize local reactions\n• **Nurse Educator Contact Info** - Free in-office or virtual training sessions\n• **Sharps Disposal & Storage Guidelines** - Safe handling requirements\n• **Patient Assistance Program Details** - Financial support and copay cards\n\nWould you like me to email this resource packet to you at **[aaron.morita1@gmail.com](mailto:aaron.morita1@gmail.com)**?";
+        return "The YEZTUGO Prescribing Information does not currently recommend dose adjustments for localized Grade 1 or 2 injection site reactions. However, for a more tailored clinical perspective or to discuss specific case-management strategies, I can:\n\n• **Submit a formal inquiry** to the Gilead Medical Information team\n• **Provide a Resource Packet** including the 'ISR Clinical Management Guide'\n\nWould you like me to connect you with your MSL for further consultation?";
       case 3:
-        return "Great! I've emailed your resource packet to **[aaron.morita1@gmail.com](mailto:aaron.morita1@gmail.com)**\n\nIs there anything else I can assist you with?";
+        return "I have routed your inquiry and clinical context to your MSL, who will follow up with you at **[aaron.morita@example.com](mailto:aaron.morita@example.com)**\n\nIs there anything else I can assist you with today?";
       case 4:
         return "You're welcome! Have a great day.";
       default:
@@ -329,7 +329,7 @@ export function AmliAiChat({ isVisible = false, onDemoModeActivate, isDemoMode =
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(true)}
-              className="relative text-white p-4 rounded-full shadow-2xl transition-shadow" style={{ backgroundColor: '#615586' }}
+              className="relative text-white p-4 rounded-full shadow-2xl transition-shadow" style={{ backgroundColor: '#C5203F' }}
             >
               {/* Pulse animation */}
               <motion.div
@@ -342,7 +342,7 @@ export function AmliAiChat({ isVisible = false, onDemoModeActivate, isDemoMode =
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="absolute inset-0 rounded-full" style={{ backgroundColor: '#615586' }}
+                className="absolute inset-0 rounded-full" style={{ backgroundColor: '#C5203F' }}
               />
               
               <MessageCircle className="w-6 h-6 relative z-10" />
@@ -363,7 +363,7 @@ export function AmliAiChat({ isVisible = false, onDemoModeActivate, isDemoMode =
               transition={{ delay: 0.8 }}
               className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-[#030213] text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap shadow-lg"
             >
-              Ask ImmunAI About RA & IBD Treatment!
+              Ask Lena AI About YEZTUGO!
               <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-0 h-0 border-t-4 border-b-4 border-l-4 border-transparent border-l-[#030213]" />
             </motion.div>
           </motion.div>
@@ -381,24 +381,24 @@ export function AmliAiChat({ isVisible = false, onDemoModeActivate, isDemoMode =
             className="fixed bottom-6 right-6 w-[420px] h-[600px] bg-white rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden border border-gray-200"
           >
             {/* Header */}
-            <div className="bg-gradient-to-br from-[#C8B3FF] to-[#E5D9FF] p-5 text-[#030213] relative overflow-hidden">
+            <div className="p-5 text-[#030213] relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #D4606E 0%, #E8939D 100%)' }}>
               {/* Decorative background elements */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-white/40 rounded-full blur-3xl" />
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#7B2DFF]/10 rounded-full blur-2xl" />
+              <div className="absolute top-0 right-0 w-20 h-20 rounded-full blur-2xl" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }} />
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full blur-2xl" style={{ backgroundColor: 'rgba(197,32,63,0.2)' }} />
               
               <div className="flex items-center justify-between relative z-10">
                 <div className="flex items-center gap-4">
                   {/* Enhanced Logo Container */}
                   <div className="relative">
-                    <div className="absolute inset-0 bg-[#7B2DFF]/20 rounded-full blur-lg" />
+                    <div className="absolute inset-0 bg-[#C5203F]/20 rounded-full blur-lg" />
                     <div className="relative w-14 h-14 bg-white rounded-full flex items-center justify-center p-2.5">
-                      <img src={immunexisIcon} alt="ImmunAI" className="h-8 w-8 object-contain mx-auto" />
+                      <img src={gileadLogo} alt="Lena AI" className="h-8 w-8 object-contain mx-auto" />
                     </div>
                   </div>
                   
                   <div>
-                    <h3 className="text-[#030213] text-xl mb-1">ImmunAI</h3>
-                    <Badge className="bg-white/60 border-0 text-xs backdrop-blur-sm" style={{ color: '#615586' }}>
+                    <h3 className="text-[#030213] text-xl mb-1">Lena AI</h3>
+                    <Badge className="bg-white/60 border-0 text-xs backdrop-blur-sm" style={{ color: '#C5203F' }}>
                       Powered by Agentforce
                     </Badge>
                   </div>
@@ -428,13 +428,13 @@ export function AmliAiChat({ isVisible = false, onDemoModeActivate, isDemoMode =
                     message.sender === 'user'
                       ? 'text-white'
                       : 'bg-white text-gray-800 border border-gray-200'
-                  }`} style={message.sender === 'user' ? { backgroundColor: '#615586' } : {}}>
+                  }`} style={message.sender === 'user' ? { backgroundColor: '#C5203F' } : {}}>
                     {message.sender === 'ai' && (
                       <div className="flex items-center gap-2.5 mb-2">
-                        <div className="w-6 h-6 bg-gradient-to-br from-[#7B2DFF]/20 to-[#9F5AFF]/20 backdrop-blur-sm rounded-full flex items-center justify-center p-1 flex-shrink-0">
-                          <img src={immunexisIcon} alt="ImmunAI" className="h-4 w-4 object-contain mx-auto" />
+                        <div className="w-6 h-6 bg-gradient-to-br from-[#C5203F]/20 to-[#E07A87]/20 backdrop-blur-sm rounded-full flex items-center justify-center p-1 flex-shrink-0">
+                          <img src={gileadLogo} alt="Lena AI" className="h-4 w-4 object-contain mx-auto" />
                         </div>
-                        <span className="text-xs text-gray-500">ImmunAI</span>
+                        <span className="text-xs text-gray-500">Lena AI</span>
                       </div>
                     )}
                     <div 
@@ -459,10 +459,10 @@ export function AmliAiChat({ isVisible = false, onDemoModeActivate, isDemoMode =
                 >
                   <div className="bg-white border border-gray-200 rounded-2xl px-4 py-3 max-w-[80%]">
                     <div className="flex items-center gap-2.5 mb-2">
-                      <div className="w-6 h-6 bg-gradient-to-br from-[#7B2DFF]/20 to-[#9F5AFF]/20 backdrop-blur-sm rounded-full flex items-center justify-center p-1 flex-shrink-0">
-                        <img src={immunexisIcon} alt="ImmunAI" className="h-4 w-4 object-contain mx-auto" />
+                      <div className="w-6 h-6 bg-gradient-to-br from-[#C5203F]/20 to-[#E07A87]/20 backdrop-blur-sm rounded-full flex items-center justify-center p-1 flex-shrink-0">
+                        <img src={gileadLogo} alt="Lena AI" className="h-4 w-4 object-contain mx-auto" />
                       </div>
-                      <span className="text-xs text-gray-500">ImmunAI</span>
+                      <span className="text-xs text-gray-500">Lena AI</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="text-xs text-gray-400">
@@ -478,7 +478,7 @@ export function AmliAiChat({ isVisible = false, onDemoModeActivate, isDemoMode =
                               repeat: Infinity,
                               delay: i * 0.1
                             }}
-                            className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#615586' }}
+                            className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#C5203F' }}
                           />
                         ))}
                       </div>
@@ -519,8 +519,8 @@ export function AmliAiChat({ isVisible = false, onDemoModeActivate, isDemoMode =
                       handleSendMessage();
                     }
                   }}
-                  placeholder="Ask about IMMUNEXIS for RA, IBD, safety..."
-                  className="flex-1 border-gray-300 min-h-[44px] max-h-[120px] resize-none overflow-y-auto py-3 px-3" style={{ '--tw-ring-color': '#615586' } as React.CSSProperties}
+                  placeholder="Ask about YEZTUGO dosing, safety, indications..."
+                  className="flex-1 border-gray-300 min-h-[44px] max-h-[120px] resize-none overflow-y-auto py-3 px-3" style={{ '--tw-ring-color': '#C5203F' } as React.CSSProperties}
                   disabled={isStreamingUserResponse}
                   rows={1}
                 />
@@ -533,7 +533,7 @@ export function AmliAiChat({ isVisible = false, onDemoModeActivate, isDemoMode =
                     (conversationStage >= 1 && conversationStage <= 4 && !hasStreamedCurrentResponse) ||
                     conversationStage === 5 // Disable at stage 5 to force textbox click
                   }
-                  className="text-white h-[44px] w-[44px] hover:opacity-90 transition-opacity" style={{ backgroundColor: '#615586' }}
+                  className="text-white h-[44px] w-[44px] hover:opacity-90 transition-opacity" style={{ backgroundColor: '#C5203F' }}
                   size="icon"
                 >
                   <Send className="w-4 h-4" />
